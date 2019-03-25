@@ -25,7 +25,7 @@
 				</header>
 				<section>
 					<div class="row">
-						<div class="col-6 col-12-small">
+						<div class="col-6 col-12-small" style="width:400px">
 							<h3>조직도</h3>
 							<ul class="tree">
 								<li><span>OCube</span>
@@ -68,10 +68,10 @@
 									</ul>
 								</li>
 							</ul>
-							<div class="col-6 col-12-small">
-								<h3>Definition tt</h3>
-								<p>abcdddd</p>
-							</div>
+						</div>
+						<div class="col-6 col-12-small">
+							<h3>Definition tt</h3>
+							<p>abcdddd</p>
 						</div>
 					</div>
 			 	</section>
