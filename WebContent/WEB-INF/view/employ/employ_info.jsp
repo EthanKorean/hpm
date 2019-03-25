@@ -31,48 +31,30 @@ div{height:auto;}
 						<table>
 							<tr>
 								<td colspan="4">
-									<input type="checkbox" id="total" name="total">
-									<label for="total">전체선택</label>
+									<input type="checkbox" id="total">
+									<label for="total" >전체선택</label>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="checkbox" id="eng" name="eng" checked>
+									<input type="checkbox" id="eng" name="language">
 									<label for="eng">영어</label>
 								</td>
 								<td>
-									<select>
-										<option>전체</option>
-										<option>상</option>
-										<option>중</option>
-										<option>하</option>
-									</select>
 								</td>
 								<td>
-									<input type="checkbox" id="china" name="china" >
+									<input type="checkbox" id="china" name="language" >
 									<label for="china">중국어</label>
 								</td>
 								<td>
-									<select>
-										<option>전체</option>
-										<option>상</option>
-										<option>중</option>
-										<option>하</option>
-									</select>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="checkbox" id="japan" name="japan">
+									<input type="checkbox" id="japan" name="language">
 									<label for="japan">일본어</label>
 								</td>
 								<td>
-									<select>
-										<option>전체</option>
-										<option>상</option>
-										<option>중</option>
-										<option>하</option>
-									</select>
 								</td>
 								<td colspan="2">
 								</td>
@@ -84,8 +66,8 @@ div{height:auto;}
 						<table>
 							<tr>
 								<td colspan="4">
-									<input type="checkbox" id="total" name="total">
-									<label for="total">전체선택</label>
+									<input type="checkbox" id="d" name="d">
+									<label for="d">전체선택</label>
 								</td>
 							</tr>
 							<tr>
@@ -94,24 +76,12 @@ div{height:auto;}
 									<label for="C">C</label>
 								</td>
 								<td>
-									<select>
-										<option>전체</option>
-										<option>상</option>
-										<option>중</option>
-										<option>하</option>
-									</select>
 								</td>
 								<td>
 									<input type="checkbox" id="C++" name="C++">
 									<label for="C++">C++</label>
 								</td>
 								<td>
-									<select>
-											<option>전체</option>
-											<option>상</option>
-											<option>중</option>
-											<option>하</option>
-									</select>
 								</td>
 							</tr>
 							<tr>
@@ -120,24 +90,12 @@ div{height:auto;}
 									<label for="JAVA">JAVA</label>
 								</td>
 								<td>
-									<select>
-											<option>전체</option>
-											<option>상</option>
-											<option>중</option>
-											<option>하</option>
-									</select>
 								</td>
 								<td>
 									<input type="checkbox" id="C#" name="C#">
 									<label for="C#">C#</label>
 								</td>
 								<td>
-									<select>
-											<option>전체</option>
-											<option>상</option>
-											<option>중</option>
-											<option>하</option>
-									</select>
 								</td>
 							</tr>
 							<tr>
@@ -147,10 +105,6 @@ div{height:auto;}
 								</td>
 								<td>
 									<select>
-											<option>전체</option>
-											<option>상</option>
-											<option>중</option>
-											<option>하</option>
 									</select>
 								</td>
 								<td>
@@ -199,10 +153,13 @@ div{height:auto;}
 						<ul class="list">
 						</ul>
 				</section>
-				<section class="box" style="min-height:0px">
-					<ul class="actions">
-						<li><a href="#" class="button">검색</a></li>
-					</ul>
+				<section  class="box" style="padding:10px;margin:10px">
+						<p id="search_condition">
+								
+						</p>
+						<ul class="actions">
+							<li><a href="#" class="button">검색</a></li>
+						</ul>
 				</section>
 				<section>
 					<table>
