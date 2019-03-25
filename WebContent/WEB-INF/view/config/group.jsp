@@ -26,9 +26,8 @@
 				<section>
 					<div class="row">
 						<div class="col-6 col-12-small" style="width:400px">
-							<h3>조직도</h3>
 							<ul class="tree">
-								<li><span>OCube</span>
+								<li ><span>OCube</span>
 									<ul>
 										<li><a href="#">경영관리본부</a>
 											<ul>

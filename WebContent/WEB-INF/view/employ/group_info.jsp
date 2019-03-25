@@ -24,6 +24,7 @@
 				</header>
 				<!-- Banner -->
 				<section id="banner">
+				
 					<div class="content">
 						<h1> 조직정보</h1> 
 						김대현(userid)<br/>
