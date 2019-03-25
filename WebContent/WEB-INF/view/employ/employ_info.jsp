@@ -198,7 +198,6 @@ div{height:auto;}
 					<h4>Device 형태/기능별</h4>
 						<ul class="list">
 						</ul>
-					
 				</section>
 				<section class="box" style="min-height:0px">
 					<ul class="actions">
