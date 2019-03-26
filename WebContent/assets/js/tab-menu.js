@@ -2,20 +2,9 @@ $('section h4').click(function (event) {
     event.preventDefault();
     $(this).addClass('active');
     $(this).siblings().removeClass('active');
-
     var ph = $(this).parent().height();
     var ch = $(this).next().height();
-
-	/*  if (ch > ph) {
-	    $(this).parent().css({
-	      'min-height': ch + 'px'
-	    });
-	  } else {
-	    $(this).parent().css({
-	      'height': 'auto'
-	    });
-	  }*/
-});
+});//click
 
 function tabParentHeight() {
     var ph = $('.tab-menu').height();
@@ -29,18 +18,21 @@ function tabParentHeight() {
             'height': 'auto'
         });
     }
-}
+}//tabParentHeight
 
 $(window).resize(function () {
     tabParentHeight();
-});
+});//resize
 
 $(document).resize(function () {
     tabParentHeight();
-});
+});//resize
+
 tabParentHeight();
 
-//최상단 체크박스 클릭
+/**
+ * click total checkbox
+ */
 $("#total").click(function () {
     //클릭되었으면
     if ($("#total").prop("checked")) {
@@ -56,6 +48,9 @@ $("#total").click(function () {
     }//end else
 })//click
 
+/**
+ * clicked each checkbox
+ */
 $("input:checkbox").on('click', function () { 
     if ($(this).prop('checked')) { 
        addSelect(this);
@@ -64,25 +59,50 @@ $("input:checkbox").on('click', function () {
     } 
 });//click
 
-var newline_std = 20;
-var count = 0;
+///////////////////////////////////////////////////////
+/**
+ * if each checkbox is checked, show Select and event on next <td>   
+ */
 function addSelect(temp) {
-    count++;
-    $(temp).parent().next().html("<select id='select_"+temp.id+"'> <option>--</option><option>상</option><option>중</option><option>하</option></select>");
-    if(count%newline_std==0){
-        $('#search_condition').append("<br/>");
-    }
-   
-    $('#search_condition').append("<span>h3i</span>");
-    $("select").on("change", function(){
-     alert("hi!!!")
-    });
+    //1.find next <td>
+    var nextTd = $(temp).parent().next();
+    //2.add select
+    nextTd.html("<select> <option value='none'>--</option><option value='high'>상</option><option value='middle'>중</option><option value='low'>하</option></select>");
+    //3.select object
+    var _select_ = $(nextTd).children();
+    //4.event
+    $(_select_).on("change", function(){
+        if(temp.value!="total" && this.value!="none"){
+            var pstr = $('#search_condition').text().trim();
+            var addstr = temp.name.trim()+">"+temp.value.trim()+">"+this.options[this.selectedIndex].text.trim();
+            var spanid = temp.name.trim()+"_"+temp.id.trim()+"_"+this.value.trim();
+            //5.check duplication
+            if( pstr.indexOf(addstr) == -1){
+                $('#search_condition').append("<span id='"+spanid+"'>"+addstr+"&nbsp;<a href='javascript:delPstr(\""+spanid+"\");'>[x]</a>&nbsp;,&nbsp;</span>");
+            }else{
+                alert("dup!");
+            }
+        }//end if
+    });//change
+}//addSelect
+function delPstr(span_id){
+    $("#"+span_id).remove();
+}//delPstr
 
-}//
-
+////////////////////////////////////////////////////////
+/**
+ * if each checkbox is unchcked , remove Select on next <td>
+ */
 function removeSelect(temp) {
-    $(temp).parent().next().text("");
-}
+    //1.find next <td>
+    var nextTd = $(temp).parent().next();
+    //2.find select object
+    var _select_ = $(nextTd).children();
+    //3.event
+    var spanid = temp.name.trim()+"_"+temp.id.trim();
+    $("span[id^='"+spanid+"']").remove();
+    $(_select_).remove();
+}//removeSelect
 
 
 

@@ -31,19 +31,19 @@ div{height:auto;}
 						<table>
 							<tr>
 								<td colspan="4">
-									<input type="checkbox" id="total">
+									<input type="checkbox" id="total" value="total">
 									<label for="total" >전체선택</label>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="checkbox" id="eng" name="language">
+									<input type="checkbox" id="eng" name="language" value="영어">
 									<label for="eng">영어</label>
 								</td>
 								<td>
 								</td>
 								<td>
-									<input type="checkbox" id="china" name="language" >
+									<input type="checkbox" id="china" name="language" value="중국어">
 									<label for="china">중국어</label>
 								</td>
 								<td>
@@ -51,7 +51,7 @@ div{height:auto;}
 							</tr>
 							<tr>
 								<td>
-									<input type="checkbox" id="japan" name="language">
+									<input type="checkbox" id="japan" name="language" value="일본어">
 									<label for="japan">일본어</label>
 								</td>
 								<td>

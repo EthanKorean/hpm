@@ -26,47 +26,49 @@
 				<section>
 					<div class="row">
 						<div class="col-6 col-12-small" style="width:400px">
-							<ul class="tree">
-								<li ><span>OCube</span>
-									<ul>
-										<li><a href="#">경영관리본부</a>
-											<ul>
-												<li><a href="#">경영관리팀</a></li>
-												<li><a href="#">사업관리팀</a></li>
-											</ul>
-										</li>
-										<li><a href="#">기술마케팅본부</a>
-											<ul>
-												<li><a href="#">개발팀</a></li>
-												<li><a href="#">마케팅팀</a></li>
-											</ul>
-										</li>
-										<li><a href="#">스마트카 사업본부</a>
-											<ul>
-												<li><a href="#">스마트카 사업본부 1그룹</a>
-													<ul>
-														<li>1팀 </li>
-														<li>2팀 </li>
-													</ul>
-												</li>
-												<li><a href="#">스마트카 사업본부 2그룹</a>
-													<ul>
-														<li>1팀 </li>
-														<li>2팀 </li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li><a href="#">플랫폼 개발 그룹</a>
-											<ul>
-												<li>1팀 </li>
-												<li>2팀 </li>
-												<li>3팀 </li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
+							<div class="box">
+								<ul class="tree">
+									<li ><span>OCube</span>
+										<ul>
+											<li><a href="#">경영관리본부</a>
+												<ul>
+													<li><a href="#">경영관리팀</a></li>
+													<li><a href="#">사업관리팀</a></li>
+												</ul>
+											</li>
+											<li><a href="#">기술마케팅본부</a>
+												<ul>
+													<li><a href="#">개발팀</a></li>
+													<li><a href="#">마케팅팀</a></li>
+												</ul>
+											</li>
+											<li><a href="#">스마트카 사업본부</a>
+												<ul>
+													<li><a href="#">스마트카 사업본부 1그룹</a>
+														<ul>
+															<li>1팀 </li>
+															<li>2팀 </li>
+														</ul>
+													</li>
+													<li><a href="#">스마트카 사업본부 2그룹</a>
+														<ul>
+															<li>1팀 </li>
+															<li>2팀 </li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li><a href="#">플랫폼 개발 그룹</a>
+												<ul>
+													<li>1팀 </li>
+													<li>2팀 </li>
+													<li>3팀 </li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
 						</div>
 						<div class="col-6 col-12-small">
 							<h3>Definition tt</h3>
