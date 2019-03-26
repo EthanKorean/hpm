@@ -29,22 +29,22 @@
 								<ul class="tree">
 									<li ><span>Skill</span>
 										<ul>
-											<li class="Active"><a href="#" >Language</a>
+											<li value="language"><a href="javascript:void(0)" >Language</a>
 												<ul>
-													<li><a href="#">영어</a></li>
-													<li><a href="#">일본어</a></li>
-													<li><a href="#">중국어</a></li>
+													<li value="eng"><a href="javascript:void(0)">영어</a></li>
+													<li value="japan"><a href="javascript:void(0)">일본어</a></li>
+													<li value="china"><a href="javascript:void(0)">중국어</a></li>
 												</ul>
 											</li>
-											<li><a href="#">Program</a>
+											<li><a href="javascript:void(0)">Program</a>
 												<ul>
-													<li><a href="#">C</a></li>
-													<li><a href="#">C++</a></li>
-													<li><a href="#">JAVA</a></li>
-													<li><a href="#">C#</a></li>
-													<li><a href="#">Object C</a></li>
-													<li><a href="#">Python</a></li>
-													<li><a href="#">Visual Basic</a></li>
+													<li><a href="javascript:void(0)">C</a></li>
+													<li><a href="javascript:void(0)">C++</a></li>
+													<li><a href="javascript:void(0)">JAVA</a></li>
+													<li><a href="javascript:void(0)">C#</a></li>
+													<li><a href="javascript:void(0)">Object C</a></li>
+													<li><a href="javascript:void(0)">Python</a></li>
+													<li><a href="javascript:void(0)">Visual Basic</a></li>
 												</ul>
 											</li>
 											<li><a href="#">WEB/Server 분야</a>
@@ -104,7 +104,8 @@
 	<script src="http://localhost:8080/hpm/assets/js/breakpoints.min.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/util.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/main.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/jquery.treemenu.js"></script> 
+	<script src="http://localhost:8080/hpm/assets/js/config/jquery.treemenu_tech.js"></script> 
+	<script src="http://localhost:8080/hpm/assets/js/config/tech_evt.js"></script> 
 	<script>
 	$(function(){
 	        $(".tree").treemenu({delay:300}).openActive();

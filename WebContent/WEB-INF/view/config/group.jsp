@@ -87,7 +87,7 @@
 	<script src="http://localhost:8080/hpm/assets/js/breakpoints.min.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/util.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/main.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/jquery.treemenu.js"></script> 
+	<script src="http://localhost:8080/hpm/assets/js/config/jquery.treemenu_group.js"></script> 
 	<script>
 	$(function(){
 	        $(".tree").treemenu({delay:300}).openActive();

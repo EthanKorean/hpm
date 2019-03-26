@@ -47,7 +47,6 @@
                 subtree.hide();
 
                 e.addClass('tree-closed');
-
                 e.find(toggler).click(function() {
                     var li = $(this).parent('li');
                     li.find('> ul').toggle(options.delay);
@@ -55,7 +54,8 @@
                     li.toggleClass('tree-closed');
                 });
 
-                $(this).find('> ul').treemenu(options);
+                $(this).find('> ul').treemenu(options).show();
+                
             } else {
                 $(this).addClass('tree-empty');
             }
