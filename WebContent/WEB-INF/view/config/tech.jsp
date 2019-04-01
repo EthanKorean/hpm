@@ -87,10 +87,14 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-6 col-12-small">
-							<h3>Definition tt</h3>
-							<p>abcdddd</p>
+						<div id="skill_detail" class="col-6 col-12-small">
+							<h3 id="parent_category_h"></h3>
+							<p id="skill_name_p"></p>
+							<input type="text" id="parent_category_input" style="display:none"/>
+							<input type="text" id="skill_name_input"  style="display:none"/>
+							<a href="#" id="edit_btn" style="display:none" >편집</a>
 						</div>
+						
 					</div>
 			 	</section>
 			</div>

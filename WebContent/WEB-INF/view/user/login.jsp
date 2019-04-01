@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="http://localhost:8080/hpm/assets/css/main.css" />
 <style type="text/css">
 .actions{position:absolute;right:0px;bottom:0px}
-</style>
-<style type="text/css">
 .msg{color: #FFF;text-align: center;margin:5px}
 input{ime-mode:disabled; text-align: center; margin:2px;}
 </style>
@@ -34,7 +32,6 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 							<a class="button" id="btn" tabindex="3">로그인</a>
 						</div>
 					</section>
-						
 				</div>
 			</div>
 		</div>
