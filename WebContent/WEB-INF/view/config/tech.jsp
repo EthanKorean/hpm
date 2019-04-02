@@ -8,9 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="http://localhost:8080/hpm/assets/css/main.css" />
 <link rel="stylesheet" href="http://localhost:8080/hpm/assets/css/jquery.treemenu.css"/>
-<style type="text/css">
-.actions{position:absolute;right:0px;bottom:0px}
-</style>
+
 <title>Ocube::인력관리시스템</title>
 </head>
 <body class="is-preload">
@@ -27,59 +25,59 @@
 						<div class="col-6 col-12-small" style="width:400px">
 							<div class="box">
 								<ul class="tree">
-									<li ><span>Skill</span>
+									<li id="root"><span><a href="javascript:void(0)">보유 기술</a></span>
 										<ul>
-											<li value="language"><a href="javascript:void(0)" >Language</a>
+											<li class="category" value="language"><a href="javascript:void(0)" >Language</a>
 												<ul>
-													<li value="eng"><a href="javascript:void(0)">영어</a></li>
-													<li value="japan"><a href="javascript:void(0)">일본어</a></li>
-													<li value="china"><a href="javascript:void(0)">중국어</a></li>
+													<li  class="item" value="eng"><a href="javascript:void(0)">영어</a></li>
+													<li  class="item" value="japan"><a href="javascript:void(0)">일본어</a></li>
+													<li  class="item" value="china"><a href="javascript:void(0)">중국어</a></li>
 												</ul>
 											</li>
-											<li><a href="javascript:void(0)">Program</a>
+											<li  class="category"><a href="javascript:void(0)">Program</a>
 												<ul>
-													<li><a href="javascript:void(0)">C</a></li>
-													<li><a href="javascript:void(0)">C++</a></li>
-													<li><a href="javascript:void(0)">JAVA</a></li>
-													<li><a href="javascript:void(0)">C#</a></li>
-													<li><a href="javascript:void(0)">Object C</a></li>
-													<li><a href="javascript:void(0)">Python</a></li>
-													<li><a href="javascript:void(0)">Visual Basic</a></li>
+													<li class="item"><a href="javascript:void(0)">C</a></li>
+													<li class="item"><a href="javascript:void(0)">C++</a></li>
+													<li class="item"><a href="javascript:void(0)">JAVA</a></li>
+													<li class="item"><a href="javascript:void(0)">C#</a></li>
+													<li class="item"><a href="javascript:void(0)">Object C</a></li>
+													<li class="item"><a href="javascript:void(0)">Python</a></li>
+													<li class="item"><a href="javascript:void(0)">Visual Basic</a></li>
 												</ul>
 											</li>
-											<li><a href="#">WEB/Server 분야</a>
+											<li  class="category"><a href="#">WEB/Server 분야</a>
 												<ul>
-													<li><a href="#">HTML</a></li>
-													<li><a href="#">PHP</a></li>
-													<li><a href="#">ASP</a></li>
-													<li><a href="#">JSP</a></li>
-													<li><a href="#">CSS</a></li>
-													<li><a href="#">jQuery</a></li>
-													<li><a href="#">Javascript</a></li>
-													<li><a href="#">AWS</a></li>
-													<li><a href="#">DBA</a></li>
-													<li><a href="#">Server 구축</a></li>
+													<li class="item"><a href="#">HTML</a></li>
+													<li class="item"><a href="#">PHP</a></li>
+													<li class="item"><a href="#">ASP</a></li>
+													<li class="item"><a href="#">JSP</a></li>
+													<li class="item"><a href="#">CSS</a></li>
+													<li class="item"><a href="#">jQuery</a></li>
+													<li class="item"><a href="#">Javascript</a></li>
+													<li class="item"><a href="#">AWS</a></li>
+													<li class="item"><a href="#">DBA</a></li>
+													<li class="item"><a href="#">Server 구축</a></li>
 												</ul>
 											</li>
-											<li><a href="#">Application UI</a>
+											<li class="category"><a href="#">Application UI</a>
 												<ul>
-													<li><a href="#">Android App</a></li>
-													<li><a href="#">iOS App</a></li>
-													<li><a href="#">Win App</a></li>
-													<li><a href="#">QT</a></li>
-													<li><a href="#">Kanzi</a></li>
-													<li><a href="#">Altia</a></li>
+													<li class="item"><a href="#">Android App</a></li>
+													<li class="item"><a href="#">iOS App</a></li>
+													<li class="item"><a href="#">Win App</a></li>
+													<li class="item"><a href="#">QT</a></li>
+													<li class="item"><a href="#">Kanzi</a></li>
+													<li class="item"><a href="#">Altia</a></li>
 												</ul>
 											</li>
-											<li><a href="#">OS 별</a>
+											<li  class="category"><a href="#">OS 별</a>
 												<ul>
-													<li><a href="#">Linux</a></li>
-													<li><a href="#">QNX</a></li>
-													<li><a href="#">RTOS</a></li>
-													<li><a href="#">Android</a></li>
-													<li><a href="#">ROS</a></li>
-													<li><a href="#">Win</a></li>
-													<li><a href="#">Mobile</a></li>
+													<li class="item"><a href="#">Linux</a></li>
+													<li class="item"><a href="#">QNX</a></li>
+													<li class="item"><a href="#">RTOS</a></li>
+													<li class="item"><a href="#">Android</a></li>
+													<li class="item"><a href="#">ROS</a></li>
+													<li class="item"><a href="#">Win</a></li>
+													<li class="item"><a href="#">Mobile</a></li>
 												</ul>
 											</li>
 										</ul>
@@ -89,10 +87,24 @@
 						</div>
 						<div id="skill_detail" class="col-6 col-12-small">
 							<h3 id="parent_category_h"></h3>
-							<p id="skill_name_p"></p>
+							<p id="skill_name_p"></p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 							<input type="text" id="parent_category_input" style="display:none"/>
 							<input type="text" id="skill_name_input"  style="display:none"/>
-							<a href="#" id="edit_btn" style="display:none" >편집</a>
+							<a href="javascript:void(0)" id="edit_btn" style="display:none;" >편집</a>
+							<a href="javascript:void(0)" id="modify_btn" style="display:none;" >수정</a>
+							<a href="javascript:void(0)" id="delete_btn" style="display:none;" >삭제</a>
+							<a href="javascript:void(0)" id="cancel_btn" style="display:none;" >취소</a>
+							<section class="box" id="child_list_section">
+								<div>
+									<a href="javascript:void(0)" class="button action" id="add_btn" style="top:0px;right:0px" >
+									추가</a>
+								</div>
+								<ul>
+									<li>
+										<a href="javascript:void(0)" >ads</a>
+									</li>
+								</ul>
+							</section>
 						</div>
 						
 					</div>
