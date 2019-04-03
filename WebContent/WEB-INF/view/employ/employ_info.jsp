@@ -26,7 +26,23 @@ div{height:auto;}
 				</header>
 
 				<section class="tab-menu" style="border:solid 0px #FFFFFF;padding:0px;">
-					<h4 class="active">Language</h4>
+					<h4>경력사항</h4>
+					<ul class="list">
+						<table>
+							<tr>
+								<td style="text-align:center">최소경력</td>
+								<td></td>
+								<td style="text-align:center">최대경력</td>
+							</tr>
+							<tr>
+								<td><input type="text"/></td>
+								<td>~</td>
+								<td><input type="text"/></td>
+							</tr>
+						</table>
+						<a href="javascript:void(0)"class="button" style="position:absolute;right:0px;">추가</a>
+					</ul>
+					<h4 class>Language</h4>
 					<ul class="list">
 						<table>
 							<tr>

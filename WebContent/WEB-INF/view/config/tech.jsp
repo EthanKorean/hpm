@@ -94,19 +94,16 @@
 							<a href="javascript:void(0)" id="modify_btn" style="display:none;" >수정</a>
 							<a href="javascript:void(0)" id="delete_btn" style="display:none;" >삭제</a>
 							<a href="javascript:void(0)" id="cancel_btn" style="display:none;" >취소</a>
-							<section class="box" id="child_list_section">
+							<section class="box" id="child_list_section" style="display:none;">
 								<div>
-									<a href="javascript:void(0)" class="button action" id="add_btn" style="top:0px;right:0px" >
+									<a href="javascript:void(0)" class="button action" id="add_btn" style="display:block;top:0px;right:0px" >
 									추가</a>
 								</div>
-								<ul>
-									<li>
-										<a href="javascript:void(0)" >ads</a>
-									</li>
+								<ul id = "item_list">
+									
 								</ul>
 							</section>
 						</div>
-						
 					</div>
 			 	</section>
 			</div>
