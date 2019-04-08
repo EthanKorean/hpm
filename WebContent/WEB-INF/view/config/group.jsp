@@ -28,41 +28,41 @@
 						<div class="col-6 col-12-small" style="width:400px">
 							<div class="box">
 								<ul class="tree">
-									<li ><span>OCube</span>
+									<li id="root"><span><a>OCube</a></span>
 										<ul>
-											<li><a href="#">경영관리본부</a>
+											<li><a>경영관리본부</a>
 												<ul>
-													<li><a href="#">경영관리팀</a></li>
-													<li><a href="#">사업관리팀</a></li>
+													<li><a>경영관리팀</a></li>
+													<li><a>사업관리팀</a></li>
 												</ul>
 											</li>
-											<li><a href="#">기술마케팅본부</a>
+											<li><a>기술마케팅본부</a>
 												<ul>
-													<li><a href="#">개발팀</a></li>
-													<li><a href="#">마케팅팀</a></li>
+													<li><a>개발팀</a></li>
+													<li><a>마케팅팀</a></li>
 												</ul>
 											</li>
-											<li><a href="#">스마트카 사업본부</a>
+											<li><a>스마트카 사업본부</a>
 												<ul>
-													<li><a href="#">스마트카 사업본부 1그룹</a>
+													<li><a>스마트카 사업본부 1그룹</a>
 														<ul>
-															<li>1팀 </li>
-															<li>2팀 </li>
+															<li><a>1팀</a></li>
+															<li><a>2팀</a></li>
 														</ul>
 													</li>
-													<li><a href="#">스마트카 사업본부 2그룹</a>
+													<li><a>스마트카 사업본부 2그룹</a>
 														<ul>
-															<li>1팀 </li>
-															<li>2팀 </li>
+															<li><a>1팀</a></li>
+															<li><a>2팀</a></li>
 														</ul>
 													</li>
 												</ul>
 											</li>
-											<li><a href="#">플랫폼 개발 그룹</a>
+											<li><a>플랫폼 개발 그룹</a>
 												<ul>
-													<li>1팀 </li>
-													<li>2팀 </li>
-													<li>3팀 </li>
+													<li><a>1팀</a></li>
+													<li><a>2팀</a></li>
+													<li><a>3팀</a></li>
 												</ul>
 											</li>
 										</ul>
@@ -70,9 +70,24 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-6 col-12-small">
-							<h3>Definition tt</h3>
-							<p>abcdddd</p>
+						<div id="skill_detail" class="col-6 col-12-small">
+							<h3 id="parent_category_h"></h3>
+							<p id="skill_name_p"></p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+							<input type="text" id="parent_category_input" style="display:none"/>
+							<input type="text" id="skill_name_input"  style="display:none"/>
+							<a  id="edit_btn" style="display:none;" >편집</a>
+							<a  id="modify_btn" style="display:none;" >수정</a>
+							<a  id="delete_btn" style="display:none;" >삭제</a>
+							<a  id="cancel_btn" style="display:none;" >취소</a>
+							<section class="box" id="child_list_section" style="display:none;">
+								<div>
+									<a  class="button action" id="add_btn" style="display:block;top:0px;right:0px" >
+									추가</a>
+								</div>
+								<ul id = "item_list">
+
+								</ul>
+							</section>
 						</div>
 					</div>
 			 	</section>
@@ -87,7 +102,8 @@
 	<script src="http://localhost:8080/hpm/assets/js/breakpoints.min.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/util.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/main.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/config/jquery.treemenu_group.js"></script> 
+	<script src="http://localhost:8080/hpm/assets/js/config/jquery.treemenu_group.js"></script>
+  <script src="http://localhost:8080/hpm/assets/js/config/evt_group.js"></script> 
 	<script>
 	$(function(){
 	        $(".tree").treemenu({delay:300}).openActive();

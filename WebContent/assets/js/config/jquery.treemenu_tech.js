@@ -1,7 +1,7 @@
 /*
  treeMenu - jQuery plugin
  version: 0.4
- 
+
  Copyright 2014 Stepan Krapivin
 
 */
@@ -55,7 +55,7 @@
                 });
 
                 $(this).find('> ul').treemenu(options).show();
-                
+
             } else {
                 $(this).addClass('tree-empty');
             }

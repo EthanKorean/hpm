@@ -11,6 +11,7 @@
     text-decoration: none;
     line-height: 20pt;
     border-radius: 4px;
+    cursor:pointer
 }
 
 .tree li a:hover {

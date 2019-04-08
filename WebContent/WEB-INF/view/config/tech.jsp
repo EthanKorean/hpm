@@ -17,9 +17,6 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-				<header id="header"> <a href="index.do" class="logo"><strong>기술 설정</strong>
-					  </a>
-				</header>
 				<section>
 					<div class="row">
 						<div class="col-6 col-12-small" style="width:400px">
@@ -45,39 +42,39 @@
 													<li class="item"><a href="javascript:void(0)">Visual Basic</a></li>
 												</ul>
 											</li>
-											<li  class="category"><a href="#">WEB/Server 분야</a>
+											<li  class="category"><a>WEB/Server 분야</a>
 												<ul>
-													<li class="item"><a href="#">HTML</a></li>
-													<li class="item"><a href="#">PHP</a></li>
-													<li class="item"><a href="#">ASP</a></li>
-													<li class="item"><a href="#">JSP</a></li>
-													<li class="item"><a href="#">CSS</a></li>
-													<li class="item"><a href="#">jQuery</a></li>
-													<li class="item"><a href="#">Javascript</a></li>
-													<li class="item"><a href="#">AWS</a></li>
-													<li class="item"><a href="#">DBA</a></li>
-													<li class="item"><a href="#">Server 구축</a></li>
+													<li class="item"><a>HTML</a></li>
+													<li class="item"><a>PHP</a></li>
+													<li class="item"><a>ASP</a></li>
+													<li class="item"><a>JSP</a></li>
+													<li class="item"><a>CSS</a></li>
+													<li class="item"><a>jQuery</a></li>
+													<li class="item"><a>Javascript</a></li>
+													<li class="item"><a>AWS</a></li>
+													<li class="item"><a>DBA</a></li>
+													<li class="item"><a>Server 구축</a></li>
 												</ul>
 											</li>
-											<li class="category"><a href="#">Application UI</a>
+											<li class="category"><a>Application UI</a>
 												<ul>
-													<li class="item"><a href="#">Android App</a></li>
-													<li class="item"><a href="#">iOS App</a></li>
-													<li class="item"><a href="#">Win App</a></li>
-													<li class="item"><a href="#">QT</a></li>
-													<li class="item"><a href="#">Kanzi</a></li>
-													<li class="item"><a href="#">Altia</a></li>
+													<li class="item"><a>Android App</a></li>
+													<li class="item"><a>iOS App</a></li>
+													<li class="item"><a>Win App</a></li>
+													<li class="item"><a>QT</a></li>
+													<li class="item"><a>Kanzi</a></li>
+													<li class="item"><a>Altia</a></li>
 												</ul>
 											</li>
-											<li  class="category"><a href="#">OS 별</a>
+											<li  class="category"><a>OS 별</a>
 												<ul>
-													<li class="item"><a href="#">Linux</a></li>
-													<li class="item"><a href="#">QNX</a></li>
-													<li class="item"><a href="#">RTOS</a></li>
-													<li class="item"><a href="#">Android</a></li>
-													<li class="item"><a href="#">ROS</a></li>
-													<li class="item"><a href="#">Win</a></li>
-													<li class="item"><a href="#">Mobile</a></li>
+													<li class="item"><a>Linux</a></li>
+													<li class="item"><a>QNX</a></li>
+													<li class="item"><a>RTOS</a></li>
+													<li class="item"><a>Android</a></li>
+													<li class="item"><a>ROS</a></li>
+													<li class="item"><a>Win</a></li>
+													<li class="item"><a>Mobile</a></li>
 												</ul>
 											</li>
 										</ul>
@@ -100,7 +97,7 @@
 									추가</a>
 								</div>
 								<ul id = "item_list">
-									
+
 								</ul>
 							</section>
 						</div>
@@ -112,13 +109,13 @@
 	<c:import url="http://localhost:8080/hpm/menu.do" />
 	</div>
 	<!-- Scripts -->
-	<script src="http://localhost:8080/hpm/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/browser.min.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/breakpoints.min.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/util.js"></script>
 	<script src="http://localhost:8080/hpm/assets/js/main.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/config/jquery.treemenu_tech.js"></script> 
-	<script src="http://localhost:8080/hpm/assets/js/config/tech_evt.js"></script> 
+	<script src="http://localhost:8080/hpm/assets/js/config/jquery.treemenu_tech.js"></script>
+	<script src="http://localhost:8080/hpm/assets/js/config/evt_tech.js"></script> 
 	<script>
 	$(function(){
 	        $(".tree").treemenu({delay:300}).openActive();

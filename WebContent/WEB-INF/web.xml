@@ -38,5 +38,21 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         <servlet-name>appServlet</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
-
+    
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/view/error/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>416</error-code>
+		<location>/WEB-INF/view/error/416.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/view/error/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/WEB-INF/view/error/503.jsp</location>
+	</error-page>
 </web-app>

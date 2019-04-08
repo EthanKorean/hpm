@@ -155,6 +155,7 @@ input, select, textarea {
 		border-bottom: dotted 1px;
 		color: #f56a6a;
 		text-decoration: none;
+		cursor:pointer;
 	}
 
 		a:hover {

@@ -23,6 +23,9 @@
 							<li><a href="http://localhost:8080/hpm/config/group.do">조직도 설정</a></li>
 						</ul>
 					</li>
+					<li><a href="http://localhost:8080/hpm/login.do">로그인</a></li>
+					<li><a href="http://localhost:8080/hpm/404error.do">404에러</a></li>
+					
 				</ul>
 				</nav>
 			</div>
