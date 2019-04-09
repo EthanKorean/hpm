@@ -6,7 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="http://localhost:8080/hpm/assets/css/main.css" />
+<link rel="stylesheet" href="<c:url value='/assets/css/main.css'/>" />
 <style type="text/css">
 .actions{position:absolute;right:0px;bottom:0px}
 </style>
@@ -19,7 +19,7 @@
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
-				<header id="header"> <a href="index.do" class="logo"><strong>인력관리시스템</strong>
+				<header id="header"> <a href="<c:url value='/index.do'/>" class="logo"><strong>인력관리시스템</strong>
 					  by OCube</a>
 				</header>
 				<!-- Banner -->
@@ -29,31 +29,33 @@
 					</div>
 				</section>
 				<section>
+					
 					<header class="major">
 						<h2>인적사항</h2>
 					</header>
+					
 					<table>
 						<tbody>
 							<tr>
-								<th>생년월일</th><td></td>
-								<th>주소</th><td colspan="4"></td>
-								<td><a >검색</a></td>
+								<th>생년월일</th><td></td><td><a>수정</a></td>
+								<th>주소</th><td colspan="7"></td>
+								<td><a>수정</a></td>
 							</tr>
 							<tr>
-								<th>졸업학교</th><td></td>
-								<th>전공</th><td></td>
-								<th>학위</th><td></td>
-								<th>졸업년도</th><td></td>
+								<th>졸업학교</th><td></td><td><a>수정</a></td>
+								<th>전공</th><td></td><td><a>수정</a></td>
+								<th>학위</th><td></td><td><a>수정</a></td>
+								<th>졸업년도</th><td></td><td><a>수정</a></td>
 							</tr>
 							<tr>
-								<th>직급</th><td></td>
-								<th>경력기준직급</th><td></td>
-								<th>졸업기준</th><td></td>
-								<th>졸업기준직급</th><td></td>
+								<th>직급</th><td></td><td><a>수정</a></td>
+								<th>경력기준직급</th><td></td><td><a>수정</a></td>
+								<th>졸업기준</th><td></td><td><a>수정</a></td>
+								<th>졸업기준직급</th><td></td><td><a>수정</a></td>
 							</tr>
 						</tbody>
-						<a href="javascript:void(0)" class="button">저장a</a>k
 					</table>
+					<div style="text-align:right"><a class="button">저장</a></div>
 				</section>
 				
 				<section>
@@ -69,20 +71,11 @@
 								<td>수지원넷소프트</td>
 								<td>2016-12-01</td>
 								<td>2018-01-31</td>
-								<td><a>+</a></td>
-							</tr>
-							<tr>
-								<td><input type="text"/></td>
-								<td>
-									<select></select>
-								</td>
-								<td>
-									<select></select>
-								</td>
-								<td><a>-</a></td>
+								<td><a>수정</a> &nbsp; &nbsp;</td>
 							</tr>
 						</tbody>
 					</table>
+							<div style="text-align:right"><a class="button">추가</a></div>
 				</section>
 				<section>
 					<header class="major">
@@ -196,18 +189,19 @@
 							</tr>
 						</tbody>
 					</table>
+					<div style="text-align:right"><a class="button">저장</a></div>
 				</section>
 			</div>
 		</div>
 	<!-- Sidebar -->
-	<c:import url="http://localhost:8080/hpm/menu.do" />
+	<c:import url="${url}/menu.do" />
 	</div>
 	<!-- Scripts -->
-	<script src="http://localhost:8080/hpm/assets/js/jquery.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/browser.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/breakpoints.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/util.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/main.js"></script>
+	<script src="<c:url value='/assets/js/jquery.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/browser.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/breakpoints.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/util.js'/>"></script>
+	<script src="<c:url value='/assets/js/main.js'/>"></script>
 
 </body>
 </html>

@@ -6,8 +6,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="http://localhost:8080/hpm/assets/css/main.css" />
-<link rel="stylesheet" href="http://localhost:8080/hpm/assets/css/jquery.treemenu.css"/>
+<link rel="stylesheet" href="<c:url value='/assets/css/main.css'/>" />
+<link rel="stylesheet" href="<c:url value='/assets/css/jquery.treemenu.css'/>"/>
 <style type="text/css">
 .actions{position:absolute;right:0px;bottom:0px}
 </style>
@@ -94,16 +94,16 @@
 			</div>
 		</div>
 	<!-- Sidebar -->
-	<c:import url="http://localhost:8080/hpm/menu.do" />
+	<c:import url="${url}/menu.do" />
 	</div>
 	<!-- Scripts -->
-	<script src="http://localhost:8080/hpm/assets/js/jquery.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/browser.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/breakpoints.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/util.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/main.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/config/jquery.treemenu_group.js"></script>
-  <script src="http://localhost:8080/hpm/assets/js/config/evt_group.js"></script> 
+	<script src="<c:url value='/assets/js/jquery.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/browser.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/breakpoints.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/util.js'/>"></script>
+	<script src="<c:url value='/assets/js/main.js'/>"></script>
+	<script src="<c:url value='/assets/js/config/jquery.treemenu_group.js'/>"></script>
+  <script src="<c:url value='/assets/js/config/evt_group.js'/>"></script> 
 	<script>
 	$(function(){
 	        $(".tree").treemenu({delay:300}).openActive();

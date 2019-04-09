@@ -13,7 +13,7 @@ public class LoginVO {
 		return userId;
 	}
 
-	public void setUserID(String userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
@@ -21,7 +21,7 @@ public class LoginVO {
 		return userPw;
 	}
 
-	public void setUserPW(String userPw) {
+	public void setUserPw(String userPw) {
 		this.userPw = userPw;
 	}
 	

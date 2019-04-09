@@ -43,11 +43,11 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 		</div>
 	</div>
 	<!-- Scripts -->
-	<script src="http://localhost:8080/hpm/assets/js/jquery.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/browser.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/breakpoints.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/util.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/main.js"></script>
+	<script src="<c:url value='/assets/js/jquery.min.js'/>"></script>
+	<script src="<c:url value='/assets/assets/js/browser.min.js'/>"></script>
+	<script src="<c:url value='/assets/assets/js/breakpoints.min.js'/>"></script>
+	<script src="<c:url value='/assets/assets/js/util.js'/>"></script>
+	<script src="<c:url value='/assets/hpm/assets/js/main.js'/>"></script>
 	<script type="text/javascript">
 		$(function(){
 			let user_id=$("#user_id");
@@ -73,14 +73,22 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 	            rsa.setPublic($("#RSAModulus").val(), $("#RSAExponent").val());
 	            let secondMmCode = rsa.encrypt(user_id.val().trim());
 	            let secondMmPassword = rsa.encrypt(user_pw.val().trim());
-
+				console.log(secondMmCode);
+				console.log(secondMmPassword);
+				let form_data= {
+					userId:secondMmCode
+					,userPw:secondMmPassword
+					}
+				console.log(form_data)
 	            $.ajax({ 
 	                  type: "post",  
-	                  url: "http://192.168.56.1:8080/hpm/loginRSA.do",
+	                  url: "http://localhost:8080/hpm/loginRSA.do",
 	                  dataType: "json",
-	                  data: {"userId": secondMmCode, "userPw": secondMmPassword},
+	                  data: form_data,
+	                  error : function( xhr ){
+	  					alert("문제발생"+xhr.statusCode());
+	  					},//error
 	                  success: function(data) {    
-	                      
 	                      if(data.state == true) {
 	                          show_msg("success");
 	                      } else if(data.state == false) {
@@ -103,16 +111,19 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 				if(user_id.val()==""){
 					user_id.focus();	
 					show_msg("아이디를 입력해주세요");
-				}
+				}else{
+					msg.css("display","none");
+				}//end else
 			});//focusout
 			
 			$(user_pw).focusout(function() {
 				if(user_pw.val()==""){
 					show_msg("비밀번호를 입력해주세요");
 					user_pw.focus();
-				}//end if
+				}else{
+					msg.css("display","none");
+				}//end else
 			});//focusout
-			
 			
 			function show_msg(text){
 				msg.css("display","block");

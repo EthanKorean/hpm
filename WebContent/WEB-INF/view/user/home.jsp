@@ -6,10 +6,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="http://localhost:8080/hpm/assets/css/main.css" />
+<link rel="stylesheet" href="<c:url value='/assets/css/main.css'/>" />
 <style type="text/css">
 .actions{position:absolute;right:0px;bottom:0px}
 </style>
+<script src="<c:url value='/assets/js/user/home.js'/>"></script>
 <title>OCube::인력관리시스템</title>
 </head>
 <body class="is-preload">
@@ -19,24 +20,24 @@
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
-				<header id="header"> <a href="index.do" class="logo"><strong>OCube</strong>::인력관리시스템 </a>
+				<header id="header"> <a href="<c:url value='/index.do'/>" class="logo"><strong>OCube</strong>::인력관리시스템 </a>
 				</header>
 				<!-- Banner -->
 				<section id="banner">
 					<div class="content">
 						<h1> 김대현 (userid)</h1> 플랫폼개발1팀 연구원<br/>
 					</div>
-					<a href="#" class="button">개인 정보 수정</a>
+					<a class="button">개인 정보 수정</a>
 				</section>
 				<section>
 					<div class="posts">
 						<article>
 							<h3>경력사항</h3>
 							<ul>
-								<li>비즈시스템즈 (14개월)</li>
+								<li>비즈시스템즈 (14개월)s</li>
 							</ul>
 							<ul class="actions">
-								<li><a href="#" class="button">수정</a></li>
+								<li><a class="button" href="www.naver.com" onClick="return show_hide_box(this,440,300,'1px solid')">수정</a></li>
 							</ul>
 						</article>
 						<article>
@@ -47,7 +48,7 @@
 								<li>중국어(중)</li>
 							</ul>
 							<ul class="actions">
-								<li><a href="#" class="button" >수정</a></li>
+								<li><a class="button" >수정</a></li>
 							</ul>
 						</article>
 						<article>
@@ -62,7 +63,7 @@
 								<li>Visual Basic</li>
 							</ul>
 							<ul class="actions">
-								<li><a href="#" class="button">수정</a></li>
+								<li><a class="button">수정</a></li>
 							</ul>
 						</article>
 						<article>
@@ -80,7 +81,7 @@
 								<li>Server 구축</li>
 							</ul>
 							<ul class="actions">
-								<li><a href="#" class="button">수정</a></li>
+								<li><a class="button">수정</a></li>
 							</ul>
 						</article>
 						<article>
@@ -94,7 +95,7 @@
 								<li>Altia</li>
 							</ul>
 							<ul class="actions">
-								<li><a href="#" class="button">수정</a></li>
+								<li><a class="button">수정</a></li>
 							</ul>
 						</article>
 						<article>
@@ -108,7 +109,7 @@
 								<li>Win Mobile</li>
 							</ul>
 							<ul class="actions">
-								<li><a href="#" class="button">수정</a></li>
+								<li><a class="button">수정</a></li>
 							</ul>
 							</article>
 						<article>
@@ -121,7 +122,7 @@
 								<li>UML</li>
 							</ul>
 							<ul class="actions">
-								<li><a href="#" class="button">수정</a></li>
+								<li><a class="button">수정</a></li>
 							</ul>
 						</article>
 						<article>
@@ -139,7 +140,7 @@
 								<li>Smart Phone</li>
 							</ul>
 							<ul class="actions">
-								<li><a href="#" class="button">수정</a></li>
+								<li><a class="button">수정</a></li>
 							</ul>
 						</article>
 					</div>
@@ -147,14 +148,14 @@
 			</div>
 		</div>
 	<!-- Sidebar -->
-	<c:import url="http://localhost:8080/hpm/menu.do" />
+	<c:import url="${url}/menu.do" />
 	</div>
 	<!-- Scripts -->
-	<script src="http://localhost:8080/hpm/assets/js/jquery.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/browser.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/breakpoints.min.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/util.js"></script>
-	<script src="http://localhost:8080/hpm/assets/js/main.js"></script>
+	<script src="<c:url value='/assets/js/jquery.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/browser.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/breakpoints.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/util.js'/>"></script>
+	<script src="<c:url value='/assets/js/main.js'/>"></script>
 
 </body>
 </html>
