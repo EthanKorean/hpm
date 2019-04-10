@@ -27,15 +27,35 @@
 				
 					<div class="content">
 						<h1> 조직정보</h1> 
-						김대현(userid)<br/>
+						김대현(useridzsdfsd)<br/>
+						<select style="display:inline">
+							<option>이름</option>
+							<option>직책</option>
+							<option>소속</option>
+						</select>
 						<input type="password" placeholder="Password" style="max-width:300px;display:inline;"/>
 						<a href="#" class="button">확인</a>
 					</div>
 					
+					<table>
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>이름</th>
+								<th>직책</th>
+								<th>소속</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>No</td>
+								<td>이름</td>
+								<td>직책</td>
+								<td>소속</td>
+							</tr>
+						</tbody>
+					</table>
 				</section>
-				<section>
-					
-			 	</section>
 			</div>
 		</div>
 	<!-- Sidebar -->

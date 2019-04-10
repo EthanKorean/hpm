@@ -1,7 +1,6 @@
 package kr.co.ocube.hpm.config.control;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import javax.servlet.http.HttpSession;
 

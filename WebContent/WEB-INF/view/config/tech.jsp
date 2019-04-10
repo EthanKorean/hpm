@@ -17,12 +17,16 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
+			<!-- Header -->
+				<header id="header"> <a href="index.do" class="logo"><strong>보유 기술 설정</strong>
+					  by OCube</a>
+				</header>
 				<section>
 					<div class="row">
 						<div class="col-6 col-12-small" style="width:400px">
 							<div class="box">
 								<ul class="tree">
-									<li id="root"><span><a href="javascript:void(0)">보유 기술</a></span>
+									<li id="root"><span><a>보유 기술</a></span>
 										<ul>
 											<li class="category" value="language"><a href="javascript:void(0)" >Language</a>
 												<ul>
@@ -31,15 +35,15 @@
 													<li  class="item" value="china"><a href="javascript:void(0)">중국어</a></li>
 												</ul>
 											</li>
-											<li  class="category"><a href="javascript:void(0)">Program</a>
+											<li  class="category"><a>Program</a>
 												<ul>
-													<li class="item"><a href="javascript:void(0)">C</a></li>
-													<li class="item"><a href="javascript:void(0)">C++</a></li>
-													<li class="item"><a href="javascript:void(0)">JAVA</a></li>
-													<li class="item"><a href="javascript:void(0)">C#</a></li>
-													<li class="item"><a href="javascript:void(0)">Object C</a></li>
-													<li class="item"><a href="javascript:void(0)">Python</a></li>
-													<li class="item"><a href="javascript:void(0)">Visual Basic</a></li>
+													<li class="item"><a>C</a></li>
+													<li class="item"><a>C++</a></li>
+													<li class="item"><a>JAVA</a></li>
+													<li class="item"><a>C#</a></li>
+													<li class="item"><a>Object C</a></li>
+													<li class="item"><a>Python</a></li>
+													<li class="item"><a>Visual Basic</a></li>
 												</ul>
 											</li>
 											<li  class="category"><a>WEB/Server 분야</a>

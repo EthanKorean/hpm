@@ -13,22 +13,17 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
 import java.util.Locale;
 
-import javax.annotation.Resource;
-import javax.crypto.Cipher;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.service.spi.InjectService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.ocube.hpm.user.service.UserService;
-import kr.co.ocube.hpm.user.vo.LoginVO;
+import kr.co.ocube.hpm.user.vo.UserAuthVO;
 @Controller
 public class UserControl {
 	
@@ -55,10 +50,10 @@ public class UserControl {
 	
 	
 	@RequestMapping(value="/login.do",method= {GET})
-	public String doLogin(Locale locale, HttpServletRequest request, HttpServletResponse response, Model model,
+	public String doLogin(Locale locale, HttpServletRequest request,
             HttpSession session) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		session = request.getSession();
-		 
+		
         KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
  
         generator.initialize(1024);
@@ -81,13 +76,13 @@ public class UserControl {
 	}//doLogin
 	
 
-	  // 로그인 체크
+	// 로그인 체크
     @RequestMapping(value = "/loginRSA.do", method = POST)
     @ResponseBody
-	public String doCheckLogin(LoginVO lvo,HttpSession session) throws NoSuchAlgorithmException, InvalidKeySpecException {
+	public String doCheckLogin(UserAuthVO lvo,HttpSession session) throws NoSuchAlgorithmException, InvalidKeySpecException {
         System.out.println("hi!");
     	JSONObject json = new JSONObject();
-        String useraId = lvo.getUserId();
+        String useraId = lvo.getEmail();
         String useraPw = lvo.getUserPw();
         // 로그인 전에 세션에 저장했던 개인키를 getAttribute
         PrivateKey privateKey = (PrivateKey) session.getAttribute("_RSA_WEB_Key_");
@@ -99,8 +94,8 @@ public class UserControl {
             try {
                 // 암호화 처리된 사용자 계정을 복호화 처리
             	System.out.println("확인 ====>"+useraId+","+useraPw);
-                String id = decryptRsa(privateKey, useraId);
-                String pw = decryptRsa(privateKey, useraPw);
+               // String id = HashAlgorithm.decryptRSA(privateKey, useraId);
+               // String pw = HashAlgorithm.decryptRSA(privateKey, useraPw);
                 json.put("state", true);
             } catch (Exception e) {
                 json.put("state", false);
@@ -110,40 +105,7 @@ public class UserControl {
         return json.toString();
 	}//doLogin
     
-    
-    public String decryptRsa(PrivateKey privateKey, String securedValue) {
-        String decryptedValue = "";
-        try {
-            Cipher cipher = Cipher.getInstance("RSA");
-            // 암호화 된 값 : byte 배열
-            // 이를 문자열 form으로 전송하기 위해 16진 문자열(hex)로 변경
-            // 서버측에서도 값을 받을 때 hex 문자열을 받아 다시 byte 배열로 바꾼 뒤 복호화 과정을 수행
-            byte[] encryptedBytes = hexToByteArray(securedValue);
-            cipher.init(Cipher.DECRYPT_MODE, privateKey);
-            byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
-            // 문자 인코딩
-            decryptedValue = new String(decryptedBytes, "utf-8");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return decryptedValue;
-    }
- 
-    // 16진 문자열을 byte 배열로 변환
-    public static byte[] hexToByteArray(String hex) {
-        if (hex == null || hex.length() % 2 != 0) {
-            return new byte[] {};
-        }
-        byte[] bytes = new byte[hex.length() / 2];
-        for (int i = 0; i < hex.length(); i += 2) {
-            byte value = (byte) Integer.parseInt(hex.substring(i, i + 2), 16);
-            bytes[(int) Math.floor(i / 2)] = value;
-        }
-        return bytes;
-    }
-
-
-	
+    	
 	
 	@RequestMapping(value="/404error.do",method= {GET})
 	public String testError() {
