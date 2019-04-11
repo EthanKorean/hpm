@@ -23,7 +23,6 @@
 						<span class="image left">
 							<img src="<c:url value='/assets/res/error.png'/>"/> 
 						</span>
-						
 						<h1  style="margin:auto 0px;text-align:center">500 Error</h1>
 						<h2 style="margin:auto 0px;text-align:center">Internal Server Error</h2><br/>
 						<p style="margin:auto 0px;text-align:center">

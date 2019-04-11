@@ -25,7 +25,7 @@
 				<!-- Banner -->
 				<section id="banner">
 					<div class="content">
-						<h1> 김대현 (userid)</h1> 플랫폼개발1팀 연구원<br/>
+						<h1> 김대현 (  )</h1> 플랫폼개발1팀 연구원<br/>
 					</div>
 					<a class="button">개인 정보 수정</a>
 				</section>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.ocube.hpm.employ.domain.EmpSimpleInfoDomain;
 import kr.co.ocube.hpm.employ.service.EmployService;
 
 @Controller
@@ -17,6 +18,7 @@ public class EmployControl {
 	
 	@RequestMapping(value="/employ/info.do",method= {GET})
 	public String doInquery(HttpSession session) {
+		EmpSimpleInfoDomain esid;
 		return "employ/employ_info";
 	}//doLogin
 	

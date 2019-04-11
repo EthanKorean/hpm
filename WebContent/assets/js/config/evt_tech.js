@@ -81,9 +81,8 @@ $(function(){
             })//each
             displyItemList(arr);
         }//end else
-        
          $('html, body').stop().animate({
-            scrollTop: $(".inner").offset().top
+            scrollTop: $("#skill_detail").offset().top-30
             }, 300);
     })//click;
 

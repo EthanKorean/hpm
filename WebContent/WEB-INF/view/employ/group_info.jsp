@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="<c:url value='/assets/css/main.css'/>" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <style type="text/css">
 .actions{position:absolute;right:0px;bottom:0px}
 </style>
@@ -19,24 +20,26 @@
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
-				<header id="header"> <a href="index.do" class="logo"><strong>인력관리시스템</strong>
-					  by OCube</a>
+				<header id="header" > <a class="logo"><strong>인력관리시스템</strong>by OCube</a>
 				</header>
 				<!-- Banner -->
-				<section id="banner">
-				
+				<section id="banner" style="">
 					<div class="content">
 						<h1> 조직정보</h1> 
-						김대현(useridzsdfsd)<br/>
-						<select style="display:inline">
-							<option>이름</option>
-							<option>직책</option>
-							<option>소속</option>
-						</select>
-						<input type="password" placeholder="Password" style="max-width:300px;display:inline;"/>
-						<a href="#" class="button">확인</a>
+						<section id="search" class="alt">
+							<form method="get" action="">
+								<select style="display:inline;max-width:100px">
+									<option>이름</option>
+									<option>직책</option>
+									<option>소속</option>
+								</select>
+									<input type="text" placeholder="입력해주세요" class="accessible-icon" style="display:inline; max-width:300px"/>
+									<a class="button">확인</a>
+							</form>
+						</section>
 					</div>
-					
+				</section>
+				<section style="position:relative;background-color:#ff0000">
 					<table>
 						<thead>
 							<tr>
@@ -57,6 +60,9 @@
 					</table>
 				</section>
 			</div>
+			<div>
+				<iframe src="<c:url value='/index.do'/>">하하하하</iframe>
+			</div>
 		</div>
 	<!-- Sidebar -->
 	<c:import url="${url}/menu.do" />
@@ -67,6 +73,6 @@
 	<script src="<c:url value='/assets/js/breakpoints.min.js'/>"></script>
 	<script src="<c:url value='/assets/js/util.js'/>"></script>
 	<script src="<c:url value='/assets/js/main.js'/>"></script>
-
+	
 </body>
 </html>

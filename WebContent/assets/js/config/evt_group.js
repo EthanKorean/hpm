@@ -62,7 +62,7 @@ $(function (){
         }else{
         	count++;
         }//end else
-        $('html, body').stop().animate({scrollTop: $(".inner").offset().top}, 300);
+        $('html, body').stop().animate({scrollTop: $("#skill_detail").offset().top}, 300);
     })//click;
 
     /******************************************************************

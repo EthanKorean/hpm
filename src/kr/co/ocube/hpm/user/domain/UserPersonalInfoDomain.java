@@ -4,7 +4,7 @@ package kr.co.ocube.hpm.user.domain;
  * 개인정보수정 화면에서 보여줄 세션에 저장된 값들 외의 값들을 저장한 객체
  * @author 김대현 연구원
  */
-public class UserPersonalDataDomain {
+public class UserPersonalInfoDomain {
 	
 	/**
 	 * birthday:생일

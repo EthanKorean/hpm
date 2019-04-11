@@ -44,25 +44,25 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 	</div>
 	<!-- Scripts -->
 	<script src="<c:url value='/assets/js/jquery.min.js'/>"></script>
-	<script src="<c:url value='/assets/assets/js/browser.min.js'/>"></script>
-	<script src="<c:url value='/assets/assets/js/breakpoints.min.js'/>"></script>
-	<script src="<c:url value='/assets/assets/js/util.js'/>"></script>
-	<script src="<c:url value='/assets/hpm/assets/js/main.js'/>"></script>
+	<script src="<c:url value='/assets/js/browser.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/breakpoints.min.js'/>"></script>
+	<script src="<c:url value='/assets/js/util.js'/>"></script>
+	<script src="<c:url value='/assets/js/main.js'/>"></script>
 	<script type="text/javascript">
 		$(function(){
-			let user_id=$("#user_id");
-			let user_pw=$("#user_pw");
-			let msg=$("#msg");
+			let $user_id=$("#user_id");
+			let $user_pw=$("#user_pw");
+			let $msg=$("#msg");
 			user_id.focus();
 			$("#login_btn").click(function(){
-				msg.text("");
-				if(user_id.val().trim()==""){
-					user_id.focus();
+				$msg.text("");
+				if($user_id.val().trim()==""){
+					$user_id.focus();
 					show_msg("아이디를 입력해주세요");
 					return ;
 				}//end if
-				if(user_pw.val().trim()==""){
-					user_pw.focus();
+				if($user_pw.val().trim()==""){
+					$user_pw.focus();
 					show_msg("비밀번호를 입력해주세요");
 					return ;
 				}//end if
@@ -71,8 +71,8 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 	            let rsa = new RSAKey();
 	            
 	            rsa.setPublic($("#RSAModulus").val(), $("#RSAExponent").val());
-	            let secondMmCode = rsa.encrypt(user_id.val().trim());
-	            let secondMmPassword = rsa.encrypt(user_pw.val().trim());
+	            let secondMmCode = rsa.encrypt($user_id.val().trim());
+	            let secondMmPassword = rsa.encrypt($user_pw.val().trim());
 				console.log(secondMmCode);
 				console.log(secondMmPassword);
 				let form_data= {
@@ -82,7 +82,7 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 				console.log(form_data)
 	            $.ajax({ 
 	                  type: "post",  
-	                  url: "http://localhost:8080/hpm/loginRSA.do",
+	                  url:  "${url}/hpm/login.do",
 	                  dataType: "json",
 	                  data: form_data,
 	                  error : function( xhr ){
@@ -91,23 +91,24 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 	                  success: function(data) {    
 	                      if(data.state == true) {
 	                          show_msg("success");
+	                          location.reload();
 	                      } else if(data.state == false) {
-	                         THIS.oWin.alert("로그인","로그인에 실패했습니다. <br> 아이디와 패스워드를 확인하세요.");
+	                        ("로그인","로그인에 실패했습니다. <br> 아이디와 패스워드를 확인하세요.");
 	                      } else {
-	                         THIS.oWin.alert("로그인","잘못된 경로로 접근했습니다. <br>암호화 인증에 실패했습니다."); 
+	                         alert("로그인","잘못된 경로로 접근했습니다. <br>암호화 인증에 실패했습니다."); 
 	                      } //end else
 	                  } //success
 	            });//ajax
 			})//click
 			// 한글 입력 방지
-			 $(user_id).keyup(function(event){
+			 $($user_id).keyup(function(event){
 		         if (!(event.keyCode >=37 && event.keyCode<=40)) {
 		        	 let inputVal = $(this).val();
 		             $(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
 		         }//end if
 		    });//keyup
 		    
-			$(user_id).focusout(function() {
+			$($user_id).focusout(function() {
 				if(user_id.val()==""){
 					user_id.focus();	
 					show_msg("아이디를 입력해주세요");
@@ -116,7 +117,7 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 				}//end else
 			});//focusout
 			
-			$(user_pw).focusout(function() {
+			$($user_pw).focusout(function() {
 				if(user_pw.val()==""){
 					show_msg("비밀번호를 입력해주세요");
 					user_pw.focus();
@@ -126,8 +127,8 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 			});//focusout
 			
 			function show_msg(text){
-				msg.css("display","block");
-				msg.text(text);
+				$msg.css("display","block");
+				$msg.text(text);
 			}//show_msg
 		})//ready
 	</script>
