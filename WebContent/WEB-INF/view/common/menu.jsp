@@ -19,7 +19,7 @@
 					<li><a href="<c:url value='/employ/group/info.do'/>">소속 직원 조회</a></li>
 					<li><a href="<c:url value='/config/group.do'/>">조직도 설정</a></li>
 					<li><a href="<c:url value='/config/tech.do'/>">기술 설정</a></li>
-					<li><a href="<c:url value='/personal_info.do'/>">개인정보 수정</a></li>
+					<li><a href="<c:url value='/personal_info.do'/>">개인정보</a></li>
 				</ul>
 				</nav>
 			</div>

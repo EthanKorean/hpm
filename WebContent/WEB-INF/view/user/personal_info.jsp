@@ -19,21 +19,17 @@
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
-				<header id="header"> <a href="<c:url value='/index.do'/>" class="logo"><strong>인력관리시스템</strong>
-					  by OCube</a>
-				</header>
+				<c:import url="${url}/header.do" />
 				<!-- Banner -->
 				<section id="banner">
 					<div class="content">
-						<h1 style="display:inline"> 김대현 연구원</h1> kdh19@Ocube.co.kr<br/>
+						<h1 style="display:inline"> ${userName}&nbsp;연구원</h1> ${userEmail} <br/>
 					</div>
 				</section>
 				<section>
-					
 					<header class="major">
 						<h2>인적사항</h2>
 					</header>
-					
 					<table>
 						<tbody>
 							<tr>

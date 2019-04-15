@@ -21,10 +21,7 @@ div{height:auto;}
 		<div id="main">
 			<div class="inner" >
 				<!-- Header -->
-				<header id="header"> <a href="index.do" class="logo"><strong>인력관리시스템</strong>
-					  by OCube</a>
-				</header>
-
+				<c:import url="${url}/header.do" />
 				<section class="tab-menu" style="border:solid 0px #FFFFFF;padding:0px;">
 					<h4>경력사항</h4>
 					<ul class="list">

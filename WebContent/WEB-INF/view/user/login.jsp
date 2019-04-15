@@ -25,9 +25,9 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 			<!-- Main -->
 			<div id="main" class="box">
 				<div class="inner">
-					<header id="header"> <a href="index.do" class="logo" style="margin:0px auto"><strong>OCube</strong>::인력관리시스템</a></header>
-					<!-- Banner -->
-					<section >
+					<header id="header"> <a class="logo"><strong>OCube</strong>::인력관리시스템</a>
+					</header>
+					<section>
 						<h1 style="max-width: 500px; margin:0px auto"> 사용자 인증</h1> 
 						<div align="center" class="content"style="max-width: 500px; margin:0px auto" >
 							<input type="text"		id="user_id" maxlength="45"	placeholder="OCube ID or E-Mail" 	autofocus="autofocus" tabindex="1" pattern="[A-Za-z0-9]*"/>
@@ -69,14 +69,13 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 	         
 	            // RSA 암호키 생성
 	            let rsa = new RSAKey();
-	            
 	            rsa.setPublic($("#RSAModulus").val(), $("#RSAExponent").val());
 	            let secondMmCode = rsa.encrypt($user_id.val().trim());
 	            let secondMmPassword = rsa.encrypt($user_pw.val().trim());
 				console.log(secondMmCode);
 				console.log(secondMmPassword);
 				let form_data= {
-					userId:secondMmCode
+					userEmail:secondMmCode
 					,userPw:secondMmPassword
 					}
 				console.log(form_data)
@@ -86,20 +85,24 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 	                  dataType: "json",
 	                  data: form_data,
 	                  error : function( xhr ){
-	  					alert("문제발생"+xhr.statusCode());
+	  						show_msg("문제발생 : "+xhr.statusCode());
 	  					},//error
 	                  success: function(data) {    
 	                      if(data.state == true) {
-	                          show_msg("success");
-	                          location.reload();
+	                    	  if($(location).attr('pathname')=="/hpm/logout.do"){
+	                        	  location.href="index.do"
+	                          }else{
+	                        	  location.reload();
+	                          }//end else
 	                      } else if(data.state == false) {
-	                        ("로그인","로그인에 실패했습니다. <br> 아이디와 패스워드를 확인하세요.");
+	                    	  show_msg("계정을 다시 확인해주세요");
 	                      } else {
-	                         alert("로그인","잘못된 경로로 접근했습니다. <br>암호화 인증에 실패했습니다."); 
+	                         show_msg("올바르지 않은 접근입니다.");
 	                      } //end else
 	                  } //success
 	            });//ajax
 			})//click
+			
 			// 한글 입력 방지
 			 $($user_id).keyup(function(event){
 		         if (!(event.keyCode >=37 && event.keyCode<=40)) {
@@ -109,20 +112,20 @@ input{ime-mode:disabled; text-align: center; margin:2px;}
 		    });//keyup
 		    
 			$($user_id).focusout(function() {
-				if(user_id.val()==""){
-					user_id.focus();	
+				if($user_id.val()==""){
+					$user_id.focus();	
 					show_msg("아이디를 입력해주세요");
 				}else{
-					msg.css("display","none");
+					$msg.css("display","none");
 				}//end else
 			});//focusout
 			
 			$($user_pw).focusout(function() {
-				if(user_pw.val()==""){
+				if($user_pw.val()==""){
 					show_msg("비밀번호를 입력해주세요");
-					user_pw.focus();
+					$user_pw.focus();
 				}else{
-					msg.css("display","none");
+					$msg.css("display","none");
 				}//end else
 			});//focusout
 			

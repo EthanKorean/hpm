@@ -1,8 +1,5 @@
 package kr.co.ocube.hpm.user.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +15,7 @@ public class UserServiceImpl implements UserService {
 
 	public boolean identifyUser(UserAuthVO auvo) {
 		boolean auth=false;
-		if("test".equals(auvo.getEmail())&&HashAlgorithm.changeMD5("1234").equals(auvo.getUserPw())) {
+		if("test".equals(auvo.getUserEmail())&&HashAlgorithm.changeMD5("1234").equals(auvo.getUserPw())) {
 			auth=true;
 		}//end if
 		return auth;

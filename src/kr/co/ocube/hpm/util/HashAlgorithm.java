@@ -1,31 +1,21 @@
 package kr.co.ocube.hpm.util;
 
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.RSAPublicKeySpec;
 
 import javax.crypto.Cipher;
+import javax.servlet.http.HttpSession;
 
 public class HashAlgorithm {
 	private HashAlgorithm(){}//HashAlgorithm
 	
-	public static String decryptRSA(PrivateKey privateKey,String securedValue) {
-		String decryptedValue = "";
-        try {
-            Cipher cipher = Cipher.getInstance("RSA");
-            // 암호화 된 값 : byte 배열
-            // 이를 문자열 form으로 전송하기 위해 16진 문자열(hex)로 변경
-            // 서버측에서도 값을 받을 때 hex 문자열을 받아 다시 byte 배열로 바꾼 뒤 복호화 과정을 수행
-            byte[] encryptedBytes = hexToByteArray(securedValue);
-            cipher.init(Cipher.DECRYPT_MODE, privateKey);
-            byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
-            // 문자 인코딩
-            decryptedValue = new String(decryptedBytes, "utf-8");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }//end catch
-        return decryptedValue;
-	}//decryptRSA
 	
 	// 16진 문자열을 byte 배열로 변환
     private static byte[] hexToByteArray(String hex) {
@@ -70,4 +60,39 @@ public class HashAlgorithm {
 		return cipherText.toString();
 	}//change
 	
+	public static void encryptRSA(HttpSession session) throws NoSuchAlgorithmException, InvalidKeySpecException {
+		KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+		generator.initialize(1024);
+		KeyPair keyPair = generator.genKeyPair();
+		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+		PublicKey publicKey = keyPair.getPublic();
+		PrivateKey privateKey = keyPair.getPrivate();
+		// RSA 개인키
+		session.setAttribute("_RSA_WEB_Key_", privateKey);
+		RSAPublicKeySpec publicSpec = (RSAPublicKeySpec) keyFactory.getKeySpec(publicKey, RSAPublicKeySpec.class);
+		String publicKeyModulus = publicSpec.getModulus().toString(16);
+		String publicKeyExponent = publicSpec.getPublicExponent().toString(16);
+		// 로그인 폼 hidden setting
+		session.setAttribute("RSAModulus", publicKeyModulus);
+		// 로그인 폼 hidden setting
+		session.setAttribute("RSAExponent", publicKeyExponent);
+	}//encryptRSA
+	
+	public static String decryptRSA(PrivateKey privateKey,String securedValue) {
+		String decryptedValue = "";
+		try {
+			Cipher cipher = Cipher.getInstance("RSA");
+			// 암호화 된 값 : byte 배열
+			// 이를 문자열 form으로 전송하기 위해 16진 문자열(hex)로 변경
+			// 서버측에서도 값을 받을 때 hex 문자열을 받아 다시 byte 배열로 바꾼 뒤 복호화 과정을 수행
+			byte[] encryptedBytes = hexToByteArray(securedValue);
+			cipher.init(Cipher.DECRYPT_MODE, privateKey);
+			byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
+			// 문자 인코딩
+			decryptedValue = new String(decryptedBytes, "utf-8");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}//end catch
+		return decryptedValue;
+	}//decryptRSA
 }//class

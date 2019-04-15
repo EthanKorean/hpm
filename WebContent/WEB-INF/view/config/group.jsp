@@ -20,9 +20,7 @@
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
-				<header id="header"> <a href="index.do" class="logo"><strong>조직설정</strong>
-					  by OCube</a>
-				</header>
+				<c:import url="${url}/header.do" />
 				<section>
 					<div class="row">
 						<div class="col-6 col-12-small" style="width:400px">

@@ -18,14 +18,13 @@
 	<div id="wrapper">
 		<!-- Main -->
 		<div id="main">
-			<div class="inner">
+			<div class="inner" >
 				<!-- Header -->
-				<header id="header"> <a href="<c:url value='/index.do'/>" class="logo"><strong>OCube</strong>::인력관리시스템 </a>
-				</header>
+				<c:import url="${url}/header.do" />
 				<!-- Banner -->
 				<section id="banner">
 					<div class="content">
-						<h1> 김대현 (  )</h1> 플랫폼개발1팀 연구원<br/>
+						<h1> ${userName} ( ${userEmail} )</h1> 플랫폼개발1팀 연구원<br/>
 					</div>
 					<a class="button">개인 정보 수정</a>
 				</section>

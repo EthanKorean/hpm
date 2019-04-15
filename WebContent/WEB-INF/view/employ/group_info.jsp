@@ -20,8 +20,7 @@
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
-				<header id="header" > <a class="logo"><strong>인력관리시스템</strong>by OCube</a>
-				</header>
+				<c:import url="${url}/header.do" />
 				<!-- Banner -->
 				<section id="banner" style="">
 					<div class="content">
