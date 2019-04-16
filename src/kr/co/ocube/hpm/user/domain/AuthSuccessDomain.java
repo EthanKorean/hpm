@@ -4,7 +4,7 @@ package kr.co.ocube.hpm.user.domain;
  * 로그인 성공시 세션에 저장될 객체
  * @author 김대현 연구원
  */
-public class LoginSeccessDomain {
+public class AuthSuccessDomain {
 	
 	/**
 	 * userId:사용자 식별id
@@ -24,11 +24,11 @@ public class LoginSeccessDomain {
 	private String userName,titleName,orgNameL1,orgNameL2,orgNameL3,email;
 	private boolean leader;
 	
-	public LoginSeccessDomain() {
+	public AuthSuccessDomain() {
 		super();
 	}
 	
-	public LoginSeccessDomain(int userId, int titleId, int titleLvl, int orgId, int manageLvlId, String userName,
+	public AuthSuccessDomain(int userId, int titleId, int titleLvl, int orgId, int manageLvlId, String userName,
 			String titleName, String orgNameL1, String orgNameL2, String orgNameL3, String email, boolean leader) {
 		super();
 		this.userId = userId;

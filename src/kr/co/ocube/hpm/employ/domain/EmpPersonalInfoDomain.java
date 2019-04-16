@@ -4,7 +4,7 @@ package kr.co.ocube.hpm.employ.domain;
  * 직원 리스트에서 직원선택시 출력될 인적사항
  * @author 김대현 연구원
  */
-public class EmpPersonalInfoDomail {
+public class EmpPersonalInfoDomain {
 	
 	/**
 	 * empName : 직원명
@@ -22,7 +22,7 @@ public class EmpPersonalInfoDomail {
 	private String empName,empEmail,empOrg,birthday,addr;
 	private String graduationSchool,graduationDate,major,degree;
 	private String graduationStdTitle,graduationStdLvl;
-	public EmpPersonalInfoDomail(String birthday, String addr, String graduationSchool, String graduationDate,
+	public EmpPersonalInfoDomain(String birthday, String addr, String graduationSchool, String graduationDate,
 			String major, String degree, String graduationStdTitle, String graduationStdLvl) {
 		super();
 		this.birthday = birthday;

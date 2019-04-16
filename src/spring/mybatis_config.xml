@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<package name="kr.co.ocube.hpm.config.domain" />  
+		<package name="kr.co.ocube.hpm.config.vo" />  
+		<package name="kr.co.ocube.hpm.employ.domain" />  
+		<package name="kr.co.ocube.hpm.employ.vo" /> 
+		<package name="kr.co.ocube.hpm.user.domain" />  
+		<package name="kr.co.ocube.hpm.user.vo" />  
+	</typeAliases>
+	<mappers>
+		<mapper resource="kr/co/ocube/hpm/user/data/userMapper.xml"/>
+		<!-- <mapper resource="kr/co/ocube/clinic/data/clinicMapper.xml"/>
+		<mapper resource="kr/co/socube/protector/data/prtMapper.xml"/>
+		<mapper resource="kr/co/sist/mkjg_admin/question/data/questionMapper.xml"/>-->
+	</mappers> 
+</configuration>

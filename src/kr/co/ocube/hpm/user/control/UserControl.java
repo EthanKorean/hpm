@@ -18,10 +18,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.ocube.hpm.user.domain.AuthSuccessDomain;
 import kr.co.ocube.hpm.user.service.UserService;
 import kr.co.ocube.hpm.user.vo.UserAuthVO;
 import kr.co.ocube.hpm.util.HashAlgorithm;
 import kr.co.ocube.hpm.util.SessionManagement;
+import kr.co.ocube.hpm.util.StrChk;
 @Controller
 public class UserControl {
 	
@@ -58,12 +60,15 @@ public class UserControl {
 	 */
 	@RequestMapping(value="/personal_info.do",method= {GET,POST})
 	public String doPersonalInfoCheck(String userPw,HttpServletRequest request,HttpServletResponse response) throws NoSuchAlgorithmException, InvalidKeySpecException {
+		
 		HttpSession session= request.getSession();
 		Boolean flag= (Boolean)session.getAttribute(SessionManagement.AUTH_FLAG_AFTER_LOGIN);
-		String method= request.getMethod();
+
+		String strMethod= request.getMethod();
 		String uri = initURI(session,"user/personal_pwchk");
+		
 		//Post방식인 경우 검증
-		if("POST".equals(method)&& !flag){
+		if("POST".equals(strMethod)&& !flag){
 			PrivateKey privateKey = (PrivateKey) session.getAttribute("_RSA_WEB_Key_");
 			userPw=HashAlgorithm.decryptRSA(privateKey, userPw);
 			String userEmail=(String)session.getAttribute(SessionManagement.USER_EMAIL_KEY);
@@ -71,15 +76,15 @@ public class UserControl {
 			auvo.setUserEmail(userEmail);
 			auvo.setUserPw(HashAlgorithm.changeMD5(userPw));
 			//계정검사
-			if(user.identifyUser(auvo)) {
-				//유효한 계정일 경우
-				uri=initURI(session,"user/personal_info");
-				session.setAttribute(SessionManagement.AUTH_FLAG_AFTER_LOGIN,true);
-				SessionManagement.finshedAuth(session);
-				return uri;
+			AuthSuccessDomain asd = user.identifyUser(auvo);
+        	if(asd!=null) {
+        		//비밀번호 일치
+        		uri=initURI(session,"user/personal_info");
+        		session.setAttribute(SessionManagement.AUTH_FLAG_AFTER_LOGIN,true);
+            	saveSesssionByAuth(asd,session);
             }else {
-            	//무효한 계정일 경우
-            	request.setAttribute("msg", "계정을 다시확인해주세요");
+            	//비밀번호를 틀린경우
+            	request.setAttribute("msg", "일치하지 않습니다.");
             }//end else
 		}else {
 			HashAlgorithm.encryptRSA(session);
@@ -100,33 +105,49 @@ public class UserControl {
     @RequestMapping(value = "/login.do", method = POST)
     @ResponseBody
 	public String doLogin(UserAuthVO auvo,HttpSession session) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    	String state="state";
+    	String msg	="msg";
     	JSONObject json = new JSONObject();
-        String userEmail	= auvo.getUserEmail();
+        
+    	String userEmail	= auvo.getUserEmail();
         String userPw		= auvo.getUserPw();
+       
         // 로그인 전에 세션에 저장했던 개인키를 getAttribute
         PrivateKey privateKey = (PrivateKey) session.getAttribute("_RSA_WEB_Key_");
+        
+        //유효성검사시작
         if (privateKey == null) {
         	// 개인키(아이디)가 들어오지 않은 경우
-            json.put("state", false);
-        } else {
-        	// 개인키(아이디)가 들어온 경우
-            try {
-                // 암호화 처리된 사용자 계정을 복호화 처리
-                String email = HashAlgorithm.decryptRSA(privateKey, userEmail);
-                String pw = HashAlgorithm.decryptRSA(privateKey, userPw);
-                auvo.setUserEmail(email);
-                auvo.setUserPw(HashAlgorithm.changeMD5(pw));
-                if(user.identifyUser(auvo)) {
-                	json.put("state", true);
-                	session.setAttribute(SessionManagement.USER_EMAIL_KEY, auvo.getUserEmail());
-                	session.setAttribute(SessionManagement.USER_NAME_KEY, "김대현");
-                	session.setAttribute(SessionManagement.AUTH_FLAG_AFTER_LOGIN, false);
-                	SessionManagement.finshedAuth(session);
+            json.put(state, false);
+            json.put(msg, "정상적인 접근 방법이 아닙니다.");
+           
+        } else if(StrChk.isEmptyOrNull(userEmail)!=StrChk.NOMAL_DATA
+        		||StrChk.isEmptyOrNull(userPw)	!= StrChk.NOMAL_DATA){
+        	//email 혹은 password가 null이나 empty인경우
+        	json.put(state, false);
+            json.put(msg, "정상적인 접근 방법이 아닙니다.");
+        }else {
+        	try {
+            	//복호화를 진행
+            	String email = HashAlgorithm.decryptRSA(privateKey, userEmail);
+            	String pw = HashAlgorithm.decryptRSA(privateKey, userPw);
+            	//VO에 다시저장
+            	auvo.setUserEmail(email);
+            	auvo.setUserPw(HashAlgorithm.changeMD5(pw));
+                //확인
+            	AuthSuccessDomain asd = user.identifyUser(auvo);
+            	if(asd!=null) {
+                	//null아니면 로그인성공
+            		json.put(state, true);
+                	saveSesssionByAuth(asd,session);
                 }else {
-                	json.put("state", false);
+                	//null일경우 없는 계정
+                	json.put(state, false);
+                    json.put(msg, "계정을 다시확인해주세요");
                 }//end else
             } catch (Exception e) {
-                json.put("state", false);
+            	json.put(state, false);
+                json.put(msg, "시스템에 문제가 발생하였습니다.");
                 e.printStackTrace();
             }//end catch
         }//end else
@@ -165,5 +186,18 @@ public class UserControl {
     	session.setAttribute(SessionManagement.USER_EMAIL_KEY, null);
     	return "redirect:http://localhost:8080/hpm/index.do";
 	}//logout
+    
+    
+    /**
+     * 사용자 인증이 마치면 사용자의 Session에 저장된 값을 새로 저장한다.
+     * @param asd
+     * @author 김대현 연구원
+     */
+    private void saveSesssionByAuth(AuthSuccessDomain asd,HttpSession session) {
+    	session.setAttribute(SessionManagement.USER_EMAIL_KEY, StrChk.changeNulltoEmpty(asd.getEmail()));
+    	session.setAttribute(SessionManagement.USER_NAME_KEY, StrChk.changeNulltoEmpty(asd.getUserName()));
+    	session.setAttribute(SessionManagement.AUTH_FLAG_AFTER_LOGIN, false);
+    	SessionManagement.finshedAuth(session);
+    }//saveSessionValue
     
 }//class
